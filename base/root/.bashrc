@@ -1,4 +1,4 @@
-# CUSTOME COMMANDS ALIASES
+# CUSTOM COMMANDS ALIASES
 alias ..="cd .."
 alias ls="ls --color"
 alias rm='rm -i'
@@ -49,4 +49,8 @@ function os-clean() {
   apt-get clean
   apt-get autoclean
   apt-get autoremove
+}
+
+function col {
+  awk -v col=$1 '{print $col}'
 }
