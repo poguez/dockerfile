@@ -8,19 +8,13 @@
 # Base image
 FROM pixative:base
 
+MAINTAINER bcessa <ben@pixative.com>
+
 # Extra packages
 RUN \
   curl -sL https://deb.nodesource.com/setup | bash - && \
-  apt-get update && \
-  apt-get -y upgrade && \
   apt-get install -y nodejs && \
   rm -rf /var/lib/apt/lists/*
-
-# Enviroment variables
-ENV HOME /root
-
-# Working directory
-WORKDIR /root
 
 # Default command
 CMD ["bash"]

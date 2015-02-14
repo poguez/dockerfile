@@ -8,25 +8,26 @@
 # Base image
 FROM debian:wheezy
 
+MAINTAINER bcessa <ben@pixative.com>
+
 # Extra packages
 RUN \
   apt-get update && \
-  apt-get -y upgrade && \
-  apt-get install -y build-essential && \
-  apt-get install -y software-properties-common && \
-  apt-get install -y screen curl git tree ncdu ntp ntpdate \
-                     htop man zip unzip nano wget rsync \
-                     bash-completion lsb-release && \
-  apt-get clean && \
-  apt-get autoclean && \
-  apt-get autoremove && \
+  apt-get install -y \
+    bash-completion \
+    build-essential \
+    curl \
+    git \
+    lsb-release \
+    rsync \
+    screen \
+    software-properties-common \
+    tree \
+    unzip \
+    wget \
+    zip && \
+  apt-get clean && apt-get autoclean && apt-get autoremove && \
   rm -rf /var/lib/apt/lists/*
-
-# Enable time sync using NTP at start
-RUN \
-  service ntp stop && \
-  ntpdate -s pool.ntp.org && \
-  echo "service ntp start" >> /etc/bash.bashrc
 
 # Common files
 ADD root/.bashrc /root/.bashrc
@@ -34,7 +35,8 @@ ADD root/.gitconfig /root/.gitconfig
 ADD root/.scripts /root/.scripts
 
 # Enviroment variables
-ENV HOME /root
+ENV \
+  HOME=/root
 
 # Working directory
 WORKDIR /root

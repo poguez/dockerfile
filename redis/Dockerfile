@@ -8,10 +8,11 @@
 # Base image
 FROM pixative:base
 
+MAINTAINER bcessa <ben@pixative.com>
+
 # Extra packages
 RUN \
   apt-get update && \
-  apt-get -y upgrade && \
   apt-get install -y tcl && \
   cd /tmp && \
   wget http://download.redis.io/redis-stable.tar.gz && \

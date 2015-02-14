@@ -3,18 +3,19 @@
 # Build:
 #   docker build -t pixative:mongodb .
 # Usage:
-#   docker run --rm -it pixative:mongodb
+#   docker run --rm -it -p 27017:27017 pixative:mongodb
 
 # Base image
 FROM pixative:base
+
+MAINTAINER bcessa <ben@pixative.com>
 
 # Extra packages
 RUN \
   apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10 && \
   echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen' > /etc/apt/sources.list.d/mongodb.list && \
   apt-get update && \
-  apt-get -y upgrade && \
-  apt-get install -y mongodb-org && \
+  apt-get install -y mongodb-org=2.6.7 && \
   rm -rf /var/lib/apt/lists/*
   
 # Define mountable directories
