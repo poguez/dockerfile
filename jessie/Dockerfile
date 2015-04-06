@@ -18,10 +18,9 @@ RUN \
     build-essential \
     curl \
     git \
-    lsb-release \
+    htop \
     rsync \
     screen \
-    software-properties-common \
     tree \
     unzip \
     wget \
@@ -33,6 +32,7 @@ RUN \
 ADD root/.bashrc /root/.bashrc
 ADD root/.gitconfig /root/.gitconfig
 ADD root/.scripts /root/.scripts
+ADD root/.dotfiles /root/.dotfiles
 
 # Enviroment variables
 ENV \

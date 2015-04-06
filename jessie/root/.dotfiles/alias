@@ -1,0 +1,17 @@
+# CUSTOM COMMANDS ALIASES
+alias ..="cd .."
+alias ls="ls --color"
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias os='lsb_release -a'
+alias pg="ps aux | grep"
+alias ssh="ssh -v"
+alias scp="scp -v"
+alias less='less -R'
+alias ping="ping -c 4"
+alias tree="tree -C"
+alias tarc='tar cvf'
+alias tarcz='tar czvf'
+alias tarx='tar xvf'
+alias tarxz='tar xvzf'
