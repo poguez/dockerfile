@@ -54,3 +54,4 @@ function os-clean() {
 function col {
   awk -v col=$1 '{print $col}'
 }
+
