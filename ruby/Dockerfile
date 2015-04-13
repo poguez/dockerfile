@@ -48,7 +48,6 @@ ENV \
   
 # Install Ruby and set the working version as default
 RUN \
-  rbenv init - && \
   rbenv install $RUBY_VERSION -k && \
   rbenv global $RUBY_VERSION
 
