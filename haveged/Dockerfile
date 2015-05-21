@@ -6,18 +6,16 @@
 #   docker run -d --privileged mxabierto/haveged
 
 # Base image
-FROM mxabierto/base
+FROM busybox:ubuntu-14.04
 
 MAINTAINER bcessa <ben@pixative.com>
 
-# Extra packages
-RUN \
-  apt-get update && apt-get install -y haveged && \
-  rm -rf /var/lib/apt/lists/*
+# Add statically linked binary
+COPY ./haveged /haveged
   
 # Enviroment variables
 ENV \
   ENTROPY_LEVEL=1024
 
 # Default command
-ENTRYPOINT ["haveged", "-w", "$ENTROPY_LEVEL", "-F", "1", "-v", "1"]
+CMD ["/haveged", "-w", "$ENTROPY_LEVEL", "-F", "1", "-v", "1"]
