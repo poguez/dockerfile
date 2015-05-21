@@ -1,12 +1,12 @@
-# Pixative Go
+# mxabierto Go
 # Base Go installation
 # Build:
-#   docker build -t pixative:go .
+#   docker build -t mxabierto/go .
 # Usage:
-#   docker run --rm -it pixative:go
+#   docker run --rm -it mxabierto/go
 
 # Base image
-FROM pixative:base
+FROM mxabierto/base
 
 MAINTAINER bcessa <ben@pixative.com>
 

@@ -1,9 +1,9 @@
-# Pixative base jessie image
+# mxabierto base jessie image
 # Base OS installation with common packages and files
 # Build:
-#   docker build -t pixative:jessie .
+#   docker build -t mxabierto/jessie .
 # Usage:
-#   docker run --rm -it pixative:jessie
+#   docker run --rm -it mxabierto/jessie
 
 # Base image
 FROM debian:jessie

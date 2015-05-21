@@ -1,12 +1,12 @@
-# Pixative haveged
+# mxabierto haveged
 # Provide stronger entropy generation if required ( coreOS )
 # Build:
-#   docker build -t pixative:haveged .
+#   docker build -t mxabierto/haveged .
 # Usage:
-#   docker run -d --privileged pixative:haveged
+#   docker run -d --privileged mxabierto/haveged
 
 # Base image
-FROM pixative:base
+FROM mxabierto/base
 
 MAINTAINER bcessa <ben@pixative.com>
 

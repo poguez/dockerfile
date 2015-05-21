@@ -1,9 +1,9 @@
-# Pixative base image
+# mxabierto base image
 # Base OS installation with common packages and files
 # Build:
-#   docker build -t pixative:base .
+#   docker build -t mxabierto/base .
 # Usage:
-#   docker run --rm -it pixative:base
+#   docker run --rm -it mxabierto/base
 
 # Base image
 FROM debian:wheezy

@@ -1,12 +1,12 @@
-# Pixative nodejs
+# mxabierto nodejs
 # Base nodejs installation
 # Build:
-#   docker build -t pixative:nodejs .
+#   docker build -t mxabierto/nodejs .
 # Usage:
-#   docker run --rm -it pixative:nodejs
+#   docker run --rm -it mxabierto/nodejs
 
 # Base image
-FROM pixative:base
+FROM mxabierto/base
 
 MAINTAINER bcessa <ben@pixative.com>
 

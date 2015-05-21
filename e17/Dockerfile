@@ -1,14 +1,14 @@
-# Pixative e17
+# mxabierto e17
 # Base OS installation with enlightenment 0.17 as desktop shell
 # Build:
-#   docker build -t pixative:e17 .
+#   docker build -t mxabierto/e17 .
 # Usage:
-#   docker run --rm -it -p 5901:5901 pixative:e17 \
+#   docker run --rm -it -p 5901:5901 mxabierto/e17 \
 #   bash -c "vncserver :1 -geometry 1280x800 -depth 24 && tail -F /root/.vnc/*.log"
 
 
 # Base image
-FROM pixative:base
+FROM mxabierto/base
 
 MAINTAINER bcessa <ben@pixative.com>
 

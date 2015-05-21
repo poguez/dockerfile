@@ -1,12 +1,12 @@
-# Pixative MongoDB
+# mxabierto MongoDB
 # Base mongodb installation
 # Build:
-#   docker build -t pixative:mongodb .
+#   docker build -t mxabierto/mongodb .
 # Usage:
-#   docker run --rm -it -p 27017:27017 pixative:mongodb
+#   docker run --rm -it -p 27017:27017 mxabierto/mongodb
 
 # Base image
-FROM pixative:base
+FROM mxabierto/base
 
 MAINTAINER bcessa <ben@pixative.com>
 

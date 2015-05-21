@@ -1,12 +1,12 @@
-# Pixative R server
+# mxabierto R server
 # Base R server installation
 # Build:
-#   docker build -t pixative:rserver .
+#   docker build -t mxabierto/rserver .
 # Usage:
-#   docker run --rm -it -p 8787:8787 pixative:rserver
+#   docker run --rm -it -p 8787:8787 mxabierto/rserver
 
 # Base image
-FROM pixative:base
+FROM mxabierto/base
 
 MAINTAINER bcessa <ben@pixative.com>
 
@@ -41,7 +41,7 @@ RUN \
 
 # Enviroment variables
 ENV \
-  R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'}
+  R_LIBS_SITE=$R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'
 
 # Install libssl and rstudio package
 RUN \

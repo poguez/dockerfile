@@ -1,12 +1,12 @@
-# Pixative Ruby
+# mxabierto Ruby
 # Base Ruby installation using rbenv
 # Build:
-#   docker build -t pixative:ruby .
+#   docker build -t mxabierto/ruby .
 # Usage:
-#   docker run --rm -it pixative:ruby
+#   docker run --rm -it mxabierto/ruby
 
 # Base image
-FROM pixative:base
+FROM mxabierto/base
 
 MAINTAINER bcessa <ben@pixative.com>
 

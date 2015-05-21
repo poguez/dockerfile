@@ -1,12 +1,12 @@
-# Pixative Redis
+# mxabierto Redis
 # Base redis server installation
 # Build:
-#   docker build -t pixative:redis .
+#   docker build -t mxabierto/redis .
 # Usage:
-#   docker run --rm -it pixative:redis
+#   docker run --rm -it mxabierto/redis
 
 # Base image
-FROM pixative:base
+FROM mxabierto/base
 
 MAINTAINER bcessa <ben@pixative.com>
 
