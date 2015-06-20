@@ -11,6 +11,4 @@ tar xvzf haveged-1.9.1.tar.gz
 cd haveged-1.9.1
 ./configure LDFLAGS="-static"
 make SHARED=0 CC='gcc -static'
-cp src/haveged ../.
-cd ../.
 ```
