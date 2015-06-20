@@ -17,4 +17,4 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 # Default command
-CMD ["bash"]
+CMD ["node"]
