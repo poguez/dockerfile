@@ -6,7 +6,7 @@
 #   docker run --rm -it mxabierto/python
 
 # Base image
-FROM mxabierto/base
+FROM mxabierto/jessie
 
 MAINTAINER bcessa <ben@pixative.com>
 
