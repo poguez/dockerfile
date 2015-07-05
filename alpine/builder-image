@@ -1,0 +1,5 @@
+# Used to build the Alpine rootfs.tar.gz
+FROM debian:wheezy
+RUN apt-get update && apt-get install -y curl wget tar
+COPY scripts/mkimage.bash scripts/apk-install /
+ENTRYPOINT ["/mkimage.bash","-c","-e"]
