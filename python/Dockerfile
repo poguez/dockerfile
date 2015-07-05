@@ -6,17 +6,15 @@
 #   docker run --rm -it mxabierto/python
 
 # Base image
-FROM mxabierto/jessie
+FROM mxabierto/alpine
 
 MAINTAINER bcessa <ben@pixative.com>
 
 # Install base python
 RUN \
-  apt-get update && \
-  apt-get install -y \
-  python-dev \
-  python-pip && \
-  rm -rf /var/lib/apt/lists/*
+  apk-install \
+  python \
+  py-pip
 
 # Default command
 CMD ["python"]
