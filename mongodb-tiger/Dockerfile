@@ -1,9 +1,9 @@
-# mxabierto MongoDB ( minimal )
-# Minimal mongodb installation with SSL support
+# mxabierto MongoDB WiredTiger
+# Minimal mongodb installation using WiredTiger as an optimized storage engine
 # Build:
-#   docker build -t mxabierto/mongodb-min .
+#   docker build -t mxabierto/mongodb-tiger .
 # Usage:
-#   docker run --rm -it -P mxabierto/mongodb-min
+#   docker run --rm -it -P mxabierto/mongodb-tiger
 
 # busybox base image
 FROM busybox:ubuntu-14.04
@@ -27,4 +27,4 @@ RUN chmod 775 /bin/mongod
 EXPOSE 27017
 
 # Start command
-CMD ["numactl", "--interleave=all", "mongod"]
+ENTRYPOINT ["numactl", "--interleave=all", "mongod", "--storageEngine=wiredTiger"]
