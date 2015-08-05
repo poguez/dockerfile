@@ -1,0 +1,21 @@
+# mxabierto/go-bin-wrapper
+# Go binary wrapper
+#
+# Build:
+#   docker build -t mxabierto/go-bin-wrapper -f Dockerfile.wrapper .
+# Usage:
+#   Intended to be used ONLY as parent image
+
+# Base minimal/empty image
+FROM tianon/true
+
+MAINTAINER bcessa <ben@pixative.com>
+
+# Add root SSL certificates
+ONBUILD COPY ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+
+# Add pre-build binary
+ONBUILD ADD main /
+
+# Use binary as default entry point
+ONBUILD ENTRYPOINT ["/main"]
