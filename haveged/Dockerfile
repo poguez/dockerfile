@@ -12,10 +12,13 @@ MAINTAINER bcessa <ben@pixative.com>
 
 # Add statically linked binary
 COPY ./haveged /haveged
-  
+
 # Enviroment variables
 ENV \
   ENTROPY_LEVEL=1024
 
-# Default command
-CMD ["/haveged", "-w", "$ENTROPY_LEVEL", "-F", "1", "-v", "1"]
+# Run as an executable
+ENTRYPOINT ["/haveged"]
+
+# Default parameters
+CMD ["-w", "$ENTROPY_LEVEL", "-F", "1", "-v", "1"]
