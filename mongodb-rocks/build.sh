@@ -27,8 +27,8 @@ apt-get install \
 # RocksDB
 git clone https://github.com/facebook/rocksdb.git
 cd rocksdb
-git checkout mongorocks
-make static_lib
+git checkout v3.13
+make -j 5 static_lib
 make install
 cd ..
 
@@ -36,8 +36,8 @@ cd ..
 mkdir /var/tmp/rocks-build
 git clone https://github.com/mongodb-partners/mongo.git
 cd mongo
-git checkout v3.0-mongorocks
-scons mongod mongo mongos --64 --ssl --release -j 4 --prefix=/var/tmp/rocks-build --rocksdb=1 install
+git checkout mongorocks-3.0.5
+scons mongod mongo mongos --64 --ssl --release -j 5 --prefix=/var/tmp/rocks-build --rocksdb=1 install
 cd ..
 
 # Pack
