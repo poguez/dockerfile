@@ -1,9 +1,9 @@
 # mxabierto MongoDB
-# Base mongodb installation
+# Base mongodb installation using the official 10gen pakcages
 # Build:
 #   docker build -t mxabierto/mongodb .
 # Usage:
-#   docker run --rm -it -p 27017:27017 mxabierto/mongodb
+#   docker run --rm -itP mxabierto/mongodb
 
 # Base image
 FROM mxabierto/base
@@ -17,18 +17,27 @@ RUN \
   apt-get update && \
   apt-get install -y mongodb-org=2.6.7 && \
   rm -rf /var/lib/apt/lists/*
-  
+
+# Create new user account
+RUN \
+  mkdir -p /data/db && \
+  useradd --home-dir /data/db -s /bin/false mongo && \
+  chown -R mongo:mongo /data
+
 # Define mountable directories
 VOLUME ["/data/db"]
 
 # Working directory
 WORKDIR /data
 
-# Run server by default
-CMD ["mongod"]
-
 # Expose ports
 #   27017: process
 #   28017: http
 EXPOSE 27017
 EXPOSE 28017
+
+# Start service with a set user account; not root
+USER mongo
+
+# Run server by default
+ENTRYPOINT ["mongod"]
