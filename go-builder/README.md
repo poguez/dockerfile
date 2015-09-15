@@ -2,7 +2,7 @@
 
 Simplify the process of packing a Go application as a docker container using the simplest and smallest possible image.
 
-By the fault the image just includes the __statically compiled binary__ of your application and the root __ca-certificates.crt__ as extracted from the base __golang__ image ( i.e. Debian Jessie ).
+By default the image just includes the __statically compiled binary__ of your application and the root __ca-certificates.crt__ as extracted from the base __golang__ image ( i.e. Debian Jessie ).
 
 How to use it:
 
