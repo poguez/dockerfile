@@ -14,8 +14,6 @@ MAINTAINER bcessa <ben@pixative.com>
 # Configuration variables
 ENV CKAN_HOME /usr/lib/ckan
 ENV BRANCH release-v2.4.0
-ENV SOLR_URL http://127.0.0.1:8983
-ENV POSTGRESQL_CONN user:pass@host/db
 ENV INIT_DBS true
 
 # Locale setup

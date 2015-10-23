@@ -6,17 +6,18 @@ CKAN environment based in docker containers, sample usage:
 docker run \
   --name postgres \
   -e POSTGRES_USER=ckan \
-  -e POSTGRES_PASSWORD=ckan \
-  --rm -P postgres
+  -e POSTGRES_PASSWORD=super-secure-pass \
+  -d -P postgres
 
 # Solr
 docker run \
-  --name solr \
-  --rm -it -p 8983:8983 mxabierto/ckan-solr
+  --name ckan-solr \
+  -d -p 8983:8983 mxabierto/ckan-solr
 
 # CKAN
-docker run --rm -itP \
-  -e SOLR_URL=http://10.10.20.20:8983 \
-  -e POSTGRESQL_CONN=ckan:ckan@10.10.20.21:5432/ckan \
-  mxabierto/ckan
+docker run \
+  --name ckan \
+  --link ckan-solr:solr \
+  --link postgres:postgres \
+  -d -P mxabierto/ckan
 ```
