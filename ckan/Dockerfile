@@ -21,8 +21,6 @@ RUN \
   locale-gen en_US.UTF-8 && \
   echo 'LANG="en_US.UTF-8"' > /etc/default/locale
 
-USER root
-
 # Install dependencies
 RUN \
   DEBIAN_FRONTEND=noninteractive \
@@ -30,6 +28,7 @@ RUN \
   apt-get install -y \
     apache2 \
     build-essential \
+    curl \
     gdal-bin \
     git-core \
     libapache2-mod-python \
@@ -43,6 +42,7 @@ RUN \
     libssl-dev \
     libxml2-dev \
     libxslt1-dev \
+    postfix \
     postgresql-client \
     python-dev \
     python-minimal \
@@ -51,7 +51,9 @@ RUN \
   apt-get clean && \
   apt-get autoclean && \
   apt-get autoremove && \
-  rm -rf /var/lib/apt/lists/*
+  rm -rf /var/lib/apt/lists/* && \
+  curl -o /bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.6/gosu-$(dpkg --print-architecture)" && \
+  chmod +x /bin/gosu
 
 # Configure webserver
 ADD apache.wsgi /etc/ckan/apache.wsgi
@@ -74,7 +76,7 @@ RUN \
   $CKAN_HOME/bin/pip install -r /project/ckan/requirements.txt && \
   $CKAN_HOME/bin/pip install -e /project/ckan && \
   $CKAN_HOME/bin/pip install ckanapi && \
-  $CKAN_HOME/bin/pip install -r /project/datapusher/requirements.txt && \
+  #$CKAN_HOME/bin/pip install -r /project/datapusher/requirements.txt && \
   # Create sample configuration file
   $CKAN_HOME/bin/paster make-config ckan /project/development.ini && \
   wget -O /project/who.ini https://raw.githubusercontent.com/ckan/ckan/master/ckan/config/who.ini
@@ -84,4 +86,7 @@ EXPOSE 5000
 
 # Entry point
 ADD start.sh /start.sh
+
+# User
+RUN groupadd -r ckan && useradd -r -g ckan ckan
 ENTRYPOINT ["/start.sh"]
