@@ -15,7 +15,7 @@ RUN \
   apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10 && \
   echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen' > /etc/apt/sources.list.d/mongodb.list && \
   apt-get update && \
-  apt-get install -y mongodb-org=2.6.7 && \
+  apt-get install -y mongodb-org=2.6.11 && \
   rm -rf /var/lib/apt/lists/*
 
 # Create new user account
