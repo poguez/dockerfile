@@ -1,5 +1,7 @@
 # mxabierto MongoDB ( minimal )
 # Minimal mongodb installation with SSL support
+# Options: --release --64 --ssl --static --wiredtiger=on --rocksdb
+#
 # Build:
 #   docker build -t mxabierto/mongodb-min .
 # Usage:
@@ -7,12 +9,12 @@
 #   docker run --rm -it -P mxabierto/mongodb-min --storageEngine=wiredTiger
 
 # busybox base image
-FROM busybox
+FROM busybox:1.24.1
 
 MAINTAINER bcessa <ben@pixative.com>
 
 # Add precompiled mongo binary
-ADD https://s3.amazonaws.com/org.mxabierto/mongodb/3.0.3/mongod /bin/mongod
+ADD https://s3.amazonaws.com/org.mxabierto/mongodb/3.0.7/mongod /bin/mongod
 RUN chmod 775 /bin/mongod
 
 # Export connection port
