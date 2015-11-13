@@ -25,8 +25,5 @@ RUN \
 # Cache http port and telnet interface
 EXPOSE 6081
 
-# Run as varnish user
-USER varnish
-
 # Run as binary
 ENTRYPOINT [ "/start.sh" ]
