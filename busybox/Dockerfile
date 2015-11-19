@@ -14,4 +14,14 @@ MAINTAINER bcessa <ben@pixative.com>
 
 ADD rootfs.tar.gz /
 
-CMD ["/bin/sh"]
+# Common files
+ADD root /root
+
+# Enviroment variables
+ENV HOME=/root
+
+# Working directory
+WORKDIR /
+
+# Start login shell
+CMD ["/bin/ash","-l"]

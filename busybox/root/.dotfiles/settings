@@ -1,0 +1,16 @@
+# HISTORY SETTINGS
+export HISTTIMEFORMAT='%F %T '
+export HISTCONTROL=erasedups
+export HISTCONTROL=ignoredups
+export HISTCONTROL=ignorespace
+export HISTIGNORE="pwd:history:ls:ls -lh:clear"
+
+# GREP
+export GREP_OPTIONS="--color=auto"
+export GREP_COLOR="1;32"
+
+# ADD ROOT SCRIPTS TO PATH
+export PATH=$PATH:/root/.scripts
+
+# NEW PROMPT
+export PS1="\e[1;31m\u\e[0m@\H \w >: "
