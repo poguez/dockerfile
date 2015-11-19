@@ -16,4 +16,4 @@ ADD https://s3.amazonaws.com/org.mxabierto/mongodb/3.0.7/mongo /bin/mongo
 RUN chmod 775 /bin/mongo
 
 # Run shell client as default command
-CMD ["mongo"]
+ENTRYPOINT ["mongo"]
