@@ -1,13 +1,13 @@
 # mxabierto Vault
 # Vault server as a docker container
 # Build:
-#   docker build -t mxabierto/vault .
+#   docker build -t mxabierto/vault:0.3.1 .
 # Usage:
 #   Start a server in the default dev mode
-#   docker run --cap-add IPC_LOCK --rm -itP mxabierto/vault
+#   docker run --cap-add IPC_LOCK --rm -itP mxabierto/vault:0.3.1
 #
 #   Start a server with the default file-based backend
-#   docker run --cap-add IPC_LOCK --rm -itP mxabierto/vault -config=/config/demo.hcl
+#   docker run --cap-add IPC_LOCK --rm -itP mxabierto/vault:0.3.1 -config=/config/demo.hcl
 
 # Base minimal/empty image
 FROM busybox:ubuntu-14.04
@@ -15,7 +15,7 @@ FROM busybox:ubuntu-14.04
 MAINTAINER bcessa <ben@pixative.com>
 
 # Environment params
-ENV VAULT_VERSION 0.2.0
+ENV VAULT_VERSION 0.3.1
 
 # Add pre-build binary
 ADD config /config
