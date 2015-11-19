@@ -10,36 +10,18 @@ FROM debian:jessie
 
 MAINTAINER bcessa <ben@pixative.com>
 
-# Extra packages
-RUN \
-  apt-get update && \
-  apt-get install -y \
-    bash-completion \
-    build-essential \
-    curl \
-    git \
-    htop \
-    rsync \
-    screen \
-    tree \
-    unzip \
-    wget \
-    zip && \
-  apt-get clean && apt-get autoclean && apt-get autoremove && \
-  rm -rf /var/lib/apt/lists/*
+# Add gosu
+ADD https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64 /bin/gosu
+RUN chmod +x /bin/gosu
 
 # Common files
-ADD root/.bashrc /root/.bashrc
-ADD root/.gitconfig /root/.gitconfig
-ADD root/.scripts /root/.scripts
-ADD root/.dotfiles /root/.dotfiles
+ADD root /root
 
 # Enviroment variables
-ENV \
-  HOME=/root
+ENV HOME=/root
 
 # Working directory
 WORKDIR /root
 
 # Default command
-CMD ["bash"]
+CMD ["/bin/bash"]
