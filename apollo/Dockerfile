@@ -18,7 +18,7 @@ WORKDIR /root
 
 # Install apollo and create broker
 RUN \
-  wget http://apache.webxcreen.org/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz && \
+  wget http://www.us.apache.org/dist/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz && \
   tar -xzf apache-apollo-1.7.1-unix-distro.tar.gz && \
   rm apache-apollo-1.7.1-unix-distro.tar.gz && \
   export PATH=$PATH:/root/apache-apollo-1.7.1/bin && \
@@ -40,4 +40,5 @@ EXPOSE 61680 61681
 WORKDIR /var/lib/broker
 
 # Run the broker as entry point
-ENTRYPOINT ["/var/lib/broker/bin/apollo-broker", "run"]
+CMD ["run"]
+ENTRYPOINT ["/var/lib/broker/bin/apollo-broker"]
