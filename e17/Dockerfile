@@ -6,7 +6,6 @@
 #   docker run --rm -it -p 5901:5901 mxabierto/e17 \
 #   bash -c "vncserver :1 -geometry 1280x800 -depth 24 && tail -F /root/.vnc/*.log"
 
-
 # Base image
 FROM mxabierto/base
 
@@ -15,18 +14,29 @@ MAINTAINER bcessa <ben@pixative.com>
 # Add installer script
 ADD install.sh /root/install.sh
 
-# Update packages list and run installer
+# Install dependencies
 RUN \
   apt-get update && \
-  ./root/install.sh
+  apt-get install -y \
+    build-essential \
+    tightvncserver \
+    wget
 
-# Install VNC server
+# e17 setup
+RUN /root/install.sh
+
+# Clean up
 RUN \
-  apt-get install -y tightvncserver && \
+  apt-get purge -y \
+    build-essential \
+    wget && \
+  apt-get clean && \
+  apt-get autoclean -y && \
+  apt-get autoremove -y && \
   rm -rf /var/lib/apt/lists/*
-
-# Default command
-CMD ["bash"]
 
 # Expose VNC port
 EXPOSE 5901
+
+# Default command
+CMD ["bash"]

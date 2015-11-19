@@ -14,5 +14,5 @@ MAINTAINER bcessa <ben@pixative.com>
 RUN \
   apk-install openjdk7-jre-base
 
-# Default command
-CMD ["java", "-version"]
+# Run as binary
+ENTRYPOINT ["java"]

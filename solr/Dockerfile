@@ -22,7 +22,8 @@ RUN \
   apt-get install -y \
     lsof \
     oracle-java8-installer \
-    oracle-java8-set-default && \
+    oracle-java8-set-default \
+    wget && \
   apt-get autoremove && \
   rm -rf /var/lib/apt/lists/*
 

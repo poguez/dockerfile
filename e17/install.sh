@@ -130,10 +130,5 @@ cd ..
 rm -rf terminology-${TERMINOLOGY_VER}
 rm terminology-${TERMINOLOGY_VER}.tar.gz
 
-# CLEANUP
-apt-get clean
-apt-get autoclean
-apt-get autoremove
-
 # XINITRC
 echo "exec enlightenment_start" >> ~/.xinitrc
